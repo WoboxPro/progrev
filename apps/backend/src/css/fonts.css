@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Bebas";
+    src: url("../fonts/Bebas_Neue_Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: bold;
+}
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("../fonts/Proxima Nova.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}

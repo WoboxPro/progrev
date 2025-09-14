@@ -1,0 +1,16 @@
+{
+  "name": "frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev --host ${NUXT_HOST:-0.0.0.0} --port ${NUXT_PORT:-3000}",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "start": "nuxt start"
+  },
+  "devDependencies": {
+    "nuxt": "latest"
+  }
+}
+
+

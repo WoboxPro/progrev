@@ -1,0 +1,123 @@
+:root {
+    --backColor-primary: white;
+    --backColor-inverted: black;
+    --backColor-secondary: #ebeef3;
+    --backColor-message: #b4dcff;
+    --backColor-attention: #ffc1c1;
+    --backColor-success: #e4fddd;
+
+    --textColor: #4D4D4D;
+    --textColor-inverted: #ffffff;
+    --textColor-secondary: #414141;
+    --textColor-error: #c42a2a;
+    --textColor-success: #0C4938;
+    --textColor-warn: #db7500;
+    --textColor-clue: #7c7c7c;
+    --textColor-process: #57adf3;
+
+    /*Новые переменные цветов для подготовки к темам*/
+    /*Цвета модалок*/
+    --modal-back-color-light: #00000015;
+    --modal-back-color-heavy: #0000007F;
+    --modal-back-color-inverted-heavy: #ffffff99;
+    --modal-back-color-inverted-light: #ffffff2e;
+    --modal-window-color: white;
+
+    /*Цвета текста заголовков*/
+    --header-color-primary: #1D775E;
+    --header-color-secondary: #0C4938;
+
+    /*Цвета элементов*/
+    --button-color-primary: #F4D046;
+    --button-color-secondary: #ffffff;
+    --button-color-secondary-inverted: #000000;
+    --button-color-success: #4aa84a;
+    --button-color-sssssuccess: #348341;
+    --button-color-error: #A6260B;
+    --button-color-warn: #d9d071;
+    --button-color-clue: #7b7b7b;
+    --button-color-info: #f0f1f1;
+    /*Кнопки с наведением*/
+    --button-color-secondary-inverted-h: #c3ced1;
+
+    /*кликабельные элементы*/
+    --clicable-element-color-primary: #1D775E;
+    /*Границы*/
+    --border-primary: #555555;
+    --border-secondary: #d1d1d1;
+    --border-inverted: #ffffff;
+    --border-paragraph: #F4D046;
+
+    /*График*/
+    --accrued: #ddd;
+    --paid: #87CEEBFF;
+    --retention: #FF0000FF;
+
+    /*SVG*/
+    --icon-back: #D4D4D4;
+    --icon-primary: #F4D046;
+
+    --window-warn: #FCEF7266;
+
+    /*Цвета текста*/
+    --text-color-onbutton-primary: #4D4D4D;
+    --text-color-onbutton-secondary: #000000;
+    --text-color-onbutton-secondary-inverted: #ffffff;
+    --text-color-onbutton-colored: #ffffff;
+
+    /*Цвета теней*/
+    --shadow-color-primary: #0000004C;
+    --shadow-color-secondary: #00000020;
+    /*текста*/
+    --text-shadow-inverted: #ffffff;
+    --text-shadow: #000000;
+
+    /*Цвет тапа*/
+    --tap-highlight-primary: #1D775E19;
+    /* Спец размеры элементов */
+    --btn-border-radius: 25px;
+
+    /* Иконки  */
+    --arrow-sort: url("/src/img/site/arrow_sort.svg");
+
+
+    /* Переменные размера со скроллбаром*/
+    --vh: 1vh;
+
+
+    /*  Новые переменные цветов  */
+    --background-secondary-color: #9B9B9B;
+    --background-tertiary-color: #E1E1E1;
+    --background-select-primary-color: #A6260B;
+    --background-select-secondary-color: #F4D046;
+    --background-success-primary-color: #68AB124D;
+
+    --text-primary-color: #000;
+    --text-secondary-color: #4D4D4D;
+
+
+    /* Чат */
+    --chat--btn-primary-color: #fff;
+    --chat--btn-secondary-color: #fff;
+    --chat--window-background-color: rgb(242, 252, 255);
+    --chat--window-border-color: #9FEEFF;
+    --chat--window-scroll-bar-color: rgba(215, 199, 255, 0);
+    --chat--btn-primary-background: #6EBF76;
+    --chat--btn-secondary-background: #5F96D6;
+    --chat--msg-output-background: #79bb7d;
+    --chat--msg-output-border-color: #a4ffa9;
+    --chat--msg-input-background: #c2817d;
+    --chat--msg-input-border-color: #ffa9a5;
+    --chat--inputText-secondary-background: #5F96D6;
+    --chat--msg-output-radius: 15px 15px 5px 15px;
+    --chat--msg-input-radius: 15px 15px 15px 5px;
+    --chat--msg-output-margin: 0 0 0 50px;
+    --chat--msg-input-margin: 0 50px 0 0;
+    --chat--msg-time-input-msg-color: #ffa9a5;
+    --chat--msg-time-output-msg-color: #a4ffa9;
+    --chat--btn-back-color: #D5C8FE;
+    --chat--btn-back-hover-color: #ded5ff;
+    --chat--btn-border-radius: 13px 0px 17px 0px;
+    --chat--input-background-color-hover: #F2FCFF;
+
+}

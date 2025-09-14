@@ -1,0 +1,5 @@
+.env
+apps/frontend/node_modules
+apps/frontend/.nuxt
+apps/frontend/.output
+apps/backend/vendor/

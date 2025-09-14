@@ -1,0 +1,221 @@
+*{
+    color:var(--textColor);
+    font-family: 'Proxima Nova', sans-serif;
+}
+select{
+    height:30px;
+    width:200px;
+    border-radius:5px;
+    border:1px solid #bbb;
+    padding-left:5px;
+    font-size:16px;
+}
+.green{
+	color:green;
+}
+.btn{
+    min-height: 30px;
+    width:200px;
+    border-radius:5px;
+    border: 1px solid #bbb;
+    display:grid;
+    align-content:center;
+    justify-content:center;
+    margin:0 auto;
+    padding:10px;
+    text-align:center;
+}
+.btnBack{
+    height: 50px;
+    width:200px;
+    border-radius:5px;
+    border: 1px solid #bbb;
+    display:grid;
+    align-content:center;
+    justify-content:center;
+    margin:0 auto;
+    background:white;
+    font-weight:bold;
+    font-size:0.9rem;
+}
+
+.btn:hover{
+    background: var(--button-color-secondary-inverted-h);
+}
+
+.btnProfileBack{
+    height: 30px;
+    width:200px;
+    border-radius:25px;
+    background:var(--backColor-primary);
+    color: var(--text-color-onbutton-secondary);
+    box-shadow: 2px 2px 10px var(--shadow-color-primary);
+    display:grid;
+    align-content:center;
+    justify-content:center;
+    margin:0 auto;
+    font-weight:bold;
+    font-size:.9rem;
+    user-select: none;
+    cursor:pointer;
+}
+.btnProfileBackInModal{
+    height: 30px;
+    width:200px;
+    border-radius:25px;
+    background: #e6e6e6;
+    display:grid;
+    align-content:center;
+    justify-content:center;
+    margin:0 auto;
+    font-weight:bold;
+    font-size:.9rem;
+    user-select: none;
+    cursor:pointer;
+}
+
+/*Стили новых компонентов*/
+/*стили кнопки отправки*/
+.btnSend {
+    border: 0;
+    color: var(--text-color-onbutton-primary);
+    font-weight: bolder;
+    background-color: var(--button-color-secondary);
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px var(--shadow-color-primary);
+    -webkit-box-shadow: 0 0 10px var(--shadow-color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.btnSend>svg{
+    stroke: var(--text-color-onbutton-primary);
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+}
+/*конец кнопки отправки*/
+/*Поле ввода*/
+.textAreaMessage{
+    min-width: 250px;
+    width: 80%;
+    height: 300px;
+    padding: 10px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 0;
+    box-shadow: 0 0 10px var(--shadow-color-primary);
+    -webkit-box-shadow: 0 0 10px var(--shadow-color-primary);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bolder;
+    background: var(--backColor-primary);
+}
+/*Конец поля ввода*/
+/*Стандартный инпут*/
+.clearInput{
+    padding: 5px 15px;
+    width: 100%;
+    max-width: 400px;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border-radius: 15px;
+    min-height: 40px;
+    box-shadow: 0 0 10px var(--shadow-color-primary);
+    background: var(--backColor-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--textColor-secondary);
+}
+/*конец стандартного инпута*/
+
+.inputWithLens{
+    display: flex;
+    align-items: center;
+    background: var(--backColor-primary);
+    box-shadow: 0 0 10px var(--shadow-color-primary);
+    border-radius: 15px;
+}
+.inputWithLens>input{
+    box-shadow: none;
+    background: none;
+    width: 100%;
+    max-width: 400px;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    min-height: 40px;
+    font-weight: 600;
+    color: var(--textColor-secondary);
+}
+.inputWithLens>svg{
+    height: 30px;
+    width: 30px;
+    fill: var(--text-secondary-color);
+}
+
+/*Стандартный селект*/
+.clearSelectCont{
+    position: relative;
+}
+.clearSelect {
+    padding: 5px 50px 5px 15px;
+    position: relative;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    min-height: 40px;
+    box-shadow: 0 0 10px var(--shadow-color-primary);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--textColor-secondary);
+    background: var(--backColor-primary);
+    transition: 0.3s  all ease;
+    cursor: pointer;
+    user-select: none;
+}
+.clearSelectCont>svg{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 40px;
+    stroke: var(--text-secondary-color);
+    z-index: 1;
+    padding: 5px 15px;
+    pointer-events: none;
+}
+/*Конец стандартного селекта*/
+
+li{
+    list-style-type: none;
+}
+textarea{
+    resize: none;
+    border-radius:5px;
+    font-size: 1rem;
+}
+#preloaderModal{
+    color:red;
+    display:grid;
+    align-content:center;
+    justify-content:center;
+    background:#000000bd;
+}
+.bottomMargin{
+    margin-bottom: 10px;
+}

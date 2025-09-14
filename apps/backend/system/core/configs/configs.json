@@ -1,0 +1,132 @@
+{
+    "core": {
+        "typeCore": "json",
+        "comment": "Основная конфигурация системы. Не редактировать ничего кроме 'typeCore'!"
+    },
+    "project": {
+        "DBList": [
+            {
+                "id": null,
+                "name_db": "app",
+                "username": "postgres",
+                "user_password": "postgres",
+                "server": "postgres",
+                "type_db": "1",
+                "desc_db": "Основная база проекта: PostgreSQL (Docker)",
+                "subd": "pgsql",
+                "status_db": null,
+                "default_db": 1,
+                "group_db": 1,
+                "connection_status": "Connected"
+            },
+            {
+                "id": null,
+                "name_db": "u0630936_default",
+                "username": "u0630936_default",
+                "user_password": "_110f5YS",
+                "server": "31.31.196.25",
+                "type_db": "1",
+                "desc_db": "Удалённая база проекта",
+                "subd": "mysql",
+                "status_db": null,
+                "default_db": 0,
+                "group_db": 1,
+                "connection_status": "Connected"
+            }
+        ],
+        "DBList_Server": [
+            {
+                "id": null,
+                "name_db": "app",
+                "username": "postgres",
+                "user_password": "postgres",
+                "server": "postgres",
+                "type_db": "1",
+                "desc_db": "Local Postgres service",
+                "subd": "pgsql",
+                "status_db": null,
+                "default_db": 1,
+                "group_db": 1,
+                "connection_status": "Connected"
+            }
+        ]
+    },
+    "route": {
+        "core": [
+            {
+                "id": 19,
+                "uri": "api/all-db",
+                "param_count": 2,
+                "type_callback": "classMethod",
+                "param_count_back": 2,
+                "callback": "ConnectDB::allDB",
+                "type_callback_id": 3,
+                "type_api_id": 1,
+                "type_api": "page",
+                "method": "ALL",
+                "method_id": 1,
+                "server_id": null,
+                "path_page_id": null,
+                "type_request_id": 1,
+                "description_rout": "конфиги подключения у бд",
+                "static_param": 1
+            },
+            {
+                "id": 1,
+                "uri": "api/route",
+                "param_count": 2,
+                "type_callback": "classMethod",
+                "param_count_back": 2,
+                "callback": "RouteController::go",
+                "type_callback_id": 3,
+                "type_api_id": 1,
+                "type_api": "page",
+                "method": "ALL",
+                "method_id": 1,
+                "server_id": 2,
+                "path_page_id": null,
+                "type_request_id": 2,
+                "description_rout": "что у вас здесь происходит?",
+                "static_param": 1
+            },
+            {
+                "id": 18,
+                "uri": "api/test",
+                "param_count": 2,
+                "type_callback": "classMethod",
+                "param_count_back": 2,
+                "callback": "ConnectDB::testConnectMasterDB",
+                "type_callback_id": 3,
+                "type_api_id": 1,
+                "type_api": "page",
+                "method": "ALL",
+                "method_id": 1,
+                "server_id": null,
+                "path_page_id": null,
+                "type_request_id": 1,
+                "description_rout": "fsfe",
+                "static_param": 1
+            }
+        ],
+        "project": [
+            {
+                "id": 2,
+                "uri": "",
+                "param_count": 0,
+                "type_callback": "output",
+                "param_count_back": 0,
+                "callback": "cool321=)",
+                "type_callback_id": 1,
+                "type_api_id": 1,
+                "type_api": "page",
+                "method": "ALL",
+                "method_id": 1,
+                "server_id": 1,
+                "path_page_id": "1",
+                "type_request_id": 1,
+                "description_rout": "egreger",
+                "static_param": 1
+            }
+        ]
+    }
+}
