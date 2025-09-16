@@ -20,6 +20,7 @@ if ($name === '' || !preg_match('/^[a-zA-Z0-9_\-]+$/', $name)) {
 
 $description = trim((string)($input['description'] ?? ''));
 $dbName = trim((string)($input['dbName'] ?? ''));
+$schema = trim((string)($input['schema'] ?? ''));
 $hasDbName = $dbName !== '';
 $hasDbName or ($dbName = null);
 $requires = array_values(array_filter(array_map('trim', (array)($input['requiresExtensions'] ?? []))));
@@ -37,6 +38,7 @@ $payload = [
     'up' => $up,
     'down' => $down,
     'dbName' => $dbName,
+    'schema' => $schema !== '' ? $schema : null,
 ];
 
 $dir = $_SERVER['DOCUMENT_ROOT'] . '/system/migragion';

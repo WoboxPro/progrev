@@ -7,7 +7,7 @@
         "DBList": [
             {
                 "id": null,
-                "name_db": "app",
+                "name_db": "postgres",
                 "username": "postgres",
                 "user_password": "postgres",
                 "server": "postgres",
@@ -23,7 +23,7 @@
         "DBList_Server": [
             {
                 "id": null,
-                "name_db": "app",
+                "name_db": "postgres",
                 "username": "postgres",
                 "user_password": "postgres",
                 "server": "postgres",

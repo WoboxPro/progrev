@@ -236,6 +236,14 @@
                 `,
                 events:{ click: openCreateModal }
             });
+            const btnRun = create("div",{
+                parent: controls,
+                text: {ru: "Выполнить pending", en: "Run pending"},
+                style: `
+                    color: #0a5; font-weight: bold; border:2px solid #0a5; height: 35px; padding: 0 12px; border-radius:5px; cursor:pointer; display:grid; place-content:center;
+                `,
+                events:{ click: runPending }
+            });
 
             const dataMigrations = watch([]);
             const table = new CreateTableNew({
@@ -312,6 +320,7 @@
                 const inputExt = inputRow("Требуемые расширения (через запятую)", "pgcrypto,citext");
                 const inputTrans = checkboxRow("Транзакционная", true);
                 const dbSelectWrap = selectDbRow();
+                const inputSchema = inputRow("Схема (необязательно)", "");
                 const textareaUp = textareaRow("Up SQL (по одной инструкции на строку)");
                 const textareaDown = textareaRow("Down SQL (по одной инструкции на строку)");
                 const actions = create("div",{ style:`display:flex; gap:8px; justify-content:flex-end; margin-top:6px;` });
@@ -319,7 +328,7 @@
                 const btnCancel = create("div",{ text:"Отмена", style:`color:#333; border:1px solid #bbb; height:35px; padding:0 12px; border-radius:5px; cursor:pointer; display:grid; place-content:center;` });
                 actions.append(btnCancel, btnSave);
 
-                form.append(inputName.row, inputDesc.row, inputExt.row, inputTrans.row, dbSelectWrap.row, textareaUp.row, textareaDown.row, actions);
+                form.append(inputName.row, inputDesc.row, inputExt.row, inputTrans.row, dbSelectWrap.row, inputSchema.row, textareaUp.row, textareaDown.row, actions);
                 const modal = addModalWindow("Create Migration", form);
 
                 btnCancel.onclick = ()=> modal.wobox.close();
@@ -332,6 +341,7 @@
                         requiresExtensions: inputExt.get().split(',').map(s=>s.trim()).filter(Boolean),
                         transactional: inputTrans.get(),
                         dbName: dbSelectWrap.get(),
+                        schema: inputSchema.get(),
                         up: splitLines(textareaUp.get()),
                         down: splitLines(textareaDown.get())
                     };
@@ -395,6 +405,19 @@
                       });
                     return { row, get:()=> s.value };
                 }
+            }
+
+            function runPending(e){
+                const btn = (e && e.currentTarget) ? e.currentTarget : null;
+                if (btn) { btn.textContent = 'Запуск...'; btn.style.pointerEvents='none'; }
+                fetch('/system/core/CSMR/controllers_no_route/MigrationsRun.php', { method:'POST' })
+                  .then(r=>r.json())
+                  .then(res=>{
+                    if (btn) { btn.textContent = 'Выполнить pending'; btn.style.pointerEvents='auto'; }
+                    if(!res.success){ alert(res.message||'Ошибка выполнения'); return; }
+                    renderList();
+                  })
+                  .catch(()=>{ if (btn) { btn.textContent = 'Выполнить pending'; btn.style.pointerEvents='auto'; } alert('Сеть недоступна'); });
             }
         }
 
