@@ -18,20 +18,6 @@
                 "default_db": 1,
                 "group_db": 1,
                 "connection_status": "Connected"
-            },
-            {
-                "id": null,
-                "name_db": "u0630936_default",
-                "username": "u0630936_default",
-                "user_password": "_110f5YS",
-                "server": "31.31.196.25",
-                "type_db": "1",
-                "desc_db": "Удалённая база проекта",
-                "subd": "mysql",
-                "status_db": null,
-                "default_db": 0,
-                "group_db": 1,
-                "connection_status": "Connected"
             }
         ],
         "DBList_Server": [
@@ -125,6 +111,20 @@
                 "path_page_id": "1",
                 "type_request_id": 1,
                 "description_rout": "egreger",
+                "static_param": 1
+            },
+            {
+                "uri": "testConnect",
+                "method": 1,
+                "param_count": 1,
+                "type_callback": "2",
+                "callback": "testConnect",
+                "type_api": "1",
+                "param_count_back": 1,
+                "path_for_page": "1",
+                "server": "1",
+                "type_request": "1",
+                "description_rout": "hhj",
                 "static_param": 1
             }
         ]

@@ -689,7 +689,7 @@ function renderDevTypeSwitcher(parent) {
             });
 
             const saveButton = create('div', {
-                text: 'Сохранить',
+                text: 'Загрузить',
                 style: RenderDB__STYLE.btn // Reuse existing style
             });
             
