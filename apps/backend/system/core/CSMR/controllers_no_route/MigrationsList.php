@@ -12,14 +12,15 @@ foreach (glob($dir . '/*__*.json') as $file) {
     if (!preg_match('/^([0-9]{8}_[0-9]{6})__([^.]+)\.json$/', $basename, $m)) continue;
     $raw = file_get_contents($file);
     $meta = json_decode($raw, true) ?: [];
-    $items[] = [
-        'version' => $meta['version'] ?? $m[1],
-        'name' => $meta['name'] ?? $m[2],
-        'transactional' => (bool)($meta['transactional'] ?? true),
-        'dbName' => $meta['dbName'] ?? null,
-        'modifiedAt' => date('Y-m-d H:i:s', filemtime($file)),
-        'file' => $basename,
-    ];
+    // Прокидываем все поля из JSON + добавляем служебные
+    $item = $meta;
+    $item['version'] = $meta['version'] ?? $m[1];
+    $item['name'] = $meta['name'] ?? $m[2];
+    $item['transactional'] = isset($meta['transactional']) ? (bool)$meta['transactional'] : true;
+    $item['dbName'] = $meta['dbName'] ?? ($meta['database'] ?? null);
+    $item['modifiedAt'] = date('Y-m-d H:i:s', filemtime($file));
+    $item['file'] = $basename;
+    $items[] = $item;
 }
 
 echo json_encode(['items' => $items], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);

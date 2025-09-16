@@ -287,13 +287,17 @@
                 fetch('/system/core/CSMR/controllers_no_route/MigrationsList.php', {cache:'no-cache'})
                   .then(r=>r.json())
                   .then(data=>{
-                    const items = (data.items||[]).map(x=>({
-                        version: x.version,
-                        name: x.name,
-                        dbName: x.dbName || '- ',
-                        transactional: x.transactional ? 'true' : 'false',
-                        modifiedAt: x.modifiedAt
-                    }));
+                    const items = (data.items||[]).map(x=>{
+                        const base = {
+                            version: x.version,
+                            name: x.name,
+                            dbName: x.dbName || '- ',
+                            transactional: x.transactional ? 'true' : 'false',
+                            modifiedAt: x.modifiedAt
+                        };
+                        // прокинем все остальные поля "как есть" для раскрытия деталей
+                        return Object.assign({}, x, base);
+                    });
                     updateWatch(dataMigrations, items);
                   })
                   .catch(()=>{
