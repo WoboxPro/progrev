@@ -251,6 +251,7 @@
                     { name: "version", key: "version", width: "160px" },
                     { name: "name", key: "name", width: "1fr" },
                     { name: "db", key: "dbName", width: "140px" },
+                    { name: "applied", key: "applied", width: "90px", textAlign:"center" },
                     { name: "txn", key: "transactional", width: "80px", textAlign: "center" },
                     { name: "modified", key: "modifiedAt", width: "200px" }
                 ],
@@ -300,6 +301,7 @@
                             version: x.version,
                             name: x.name,
                             dbName: x.dbName || '- ',
+                            applied: x.applied ? '✓' : '',
                             transactional: x.transactional ? 'true' : 'false',
                             modifiedAt: x.modifiedAt
                         };
@@ -314,7 +316,7 @@
               }
 
             function openCreateModal(){
-                const form = create("div",{ style:`display:grid; gap:8px; width:min(900px, 90vw);` });
+                const form = create("div",{ style:`display:grid; gap:8px; min-width:500px;` });
                 const inputName = inputRow("Имя (lat/_)", "", /^(?:[a-zA-Z0-9_\-]+)$/);
                 const inputDesc = inputRow("Описание", "");
                 const inputExt = inputRow("Требуемые расширения (через запятую)", "pgcrypto,citext");
