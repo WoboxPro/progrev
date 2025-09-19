@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "nuxt": "latest"
+  },
+  "dependencies": {
+    "@nuxtjs/seo": "^3.2.2"
   }
 }
-
-
