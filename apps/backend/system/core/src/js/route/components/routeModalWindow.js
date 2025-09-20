@@ -151,6 +151,10 @@ export function routeModalWindow( obj ){
                                 .then( r => r.text() )
                                 .then( data => {
                                     console.log( data );
+                                    // close modal if mounted inside modal window
+                                    try{ cont.parentNode && cont.parentNode.wobox && cont.parentNode.wobox.close && cont.parentNode.wobox.close(); }catch(e){}
+                                    // notify list to refresh
+                                    try{ window.dispatchEvent(new CustomEvent('routeListChanged',{ detail:{ action: methodFetch.toUpperCase() } })); }catch(e){}
                                 })
                             }
                         },
@@ -196,6 +200,8 @@ export function routeModalWindow( obj ){
                                 .then(r=>r.text())
                                 .then(resp=>{
                                     console.log('delete resp:', resp);
+                                    try{ cont.parentNode && cont.parentNode.wobox && cont.parentNode.wobox.close && cont.parentNode.wobox.close(); }catch(e){}
+                                    try{ window.dispatchEvent(new CustomEvent('routeListChanged',{ detail:{ action: 'DELETE' } })); }catch(e){}
                                 });
                             }
                         },

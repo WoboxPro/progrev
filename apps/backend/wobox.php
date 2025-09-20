@@ -210,6 +210,8 @@
                     updateWatch( dataRout, data );
                 })
             }
+            // listen refresh events from modal actions
+            window.addEventListener('routeListChanged', ()=> routeTableRender());
 
         }
 
