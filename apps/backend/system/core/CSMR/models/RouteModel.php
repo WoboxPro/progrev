@@ -142,4 +142,41 @@ class RouteModel{
                 `static_param` = $staticParam
             WHERE uri = '{$data['uriOld']}' AND method = 1");
     }
+
+    static function deleteRouteJSON( $data ){
+        $configData = CoreController::getConfig();
+        $targetUri = isset($data['uri']) ? $data['uri'] : (isset($data['uriOld']) ? $data['uriOld'] : '');
+        $targetUri = trim($targetUri, '/');
+        $targetParamCount = isset($data['countParam']) ? (int)$data['countParam'] : null;
+
+        // Работает только с проектными маршрутами
+        $projectRoutes = $configData['route']['project'] ?? [];
+
+        $filtered = [];
+        foreach ($projectRoutes as $route) {
+            $routeUri = isset($route['uri']) ? trim($route['uri'], '/') : '';
+            $routeParamCount = isset($route['param_count']) ? (int)$route['param_count'] : null;
+
+            $matchByUri = ($routeUri === $targetUri);
+            $matchByCount = ($targetParamCount === null) ? true : ($routeParamCount === $targetParamCount);
+
+            if (!($matchByUri && $matchByCount)) {
+                $filtered[] = $route;
+            }
+        }
+
+        $configData['route']['project'] = array_values($filtered);
+        $configData = json_encode($configData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_LINE_TERMINATORS | JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        file_put_contents($_SERVER['DOCUMENT_ROOT'] . '/system/core/configs/configs.json', $configData);
+        echo "delete";
+    }
+
+    static function deleteRoute( $data ){
+        $dataFromConfig = CoreController::getCore();
+        if ($dataFromConfig == "json") {
+            RouteModel::deleteRouteJSON($data);
+            return;
+        }
+        echo "not_supported";
+    }
 }

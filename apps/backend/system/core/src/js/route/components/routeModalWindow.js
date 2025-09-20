@@ -179,6 +179,26 @@ export function routeModalWindow( obj ){
                     }),
                     create("div",{
                         text: "Delete",
+                        events:{
+                            click: ()=>{
+                                const headers = new Headers({
+                                    'typeQuery': 'core'
+                                });
+                                const body = JSON.stringify({
+                                    uri: obj.data?.uriOld || obj.data?.uri || '',
+                                    countParam: obj.data?.countParam || obj.data?.countParamBack || undefined
+                                });
+                                fetch(`/api/route`,{
+                                    method: 'DELETE',
+                                    body,
+                                    headers
+                                })
+                                .then(r=>r.text())
+                                .then(resp=>{
+                                    console.log('delete resp:', resp);
+                                });
+                            }
+                        },
                         css:`
                             .$class{
                                 display: grid;
